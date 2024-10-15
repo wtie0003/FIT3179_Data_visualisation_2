@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+        
+        <script src="js/data.js"></script>
+        <!-- CSS file -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <title>FIT3179 Assignment 2</title>
+</head>
+
+<body>
+    <div class=center>
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+            <h1 class="bg-h1">Global CO2 Emissions: Trends and Sources</h1>
+            <hr>
+            <h2 class="centert">Introduction</h2>
+
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="right_text">
+              <img src="data/co2.jpg" alt="image to attract people" width="500px">
+            </div>
+          </div>
+        <div class="pure-g">
+          <div class="pure-u-1-2">
+            <p>
+                CO2 emissions is a critical issue as several nations face the environmental severe impact of industrialization and energy use. 
+                This visualization explores global emission trends, focusing on how 
+                major countries such as <span style="color:green;"><strong>Australia</strong></span>, <strong>China</strong>, 
+                and the <strong>USA</strong> contribute to climate change.
+                By examining these emissions, we highlight the urgent need for sustainable solutions to 
+                address the growing challenge of global warming.
+            </p>
+            
+            
+            
+          </div>
+    </div>
+
+
+    
+    <hr>
+    <div id="section1">
+        <h2>Global CO2 Emissions by Country(1960-2021)</h2>
+        <div id="choropleth_map"></div>
+        <p class="note">
+          *click the slider to change year
+        </p>
+        <p id="sec1_text" class="text">
+            This interactive map shows the <strong>global distribution</strong> of CO2 emissions from 1960 to 2021, 
+            measured in Million Metric Tons (Mt). Industrialized nations like China, the USA, and Russia are the 
+            <strong>largest contributors</strong>, while emissions remain lower across much of Africa and South America.
+            <br>
+            As time progresses, the map highlights <strong>rising emissions</strong>, especially in rapidly developing economies 
+            such as China. The color scale visualizes these changes, with the colour scale (viridis) moving towards yellow, indicating higher CO2 outputs, 
+            reflecting the increasing <strong>environmental impact</strong> of <strong>industrial activities</strong> worldwide.
+        </p>
+        
+    </div>
+    
+    <hr>
+    <div id="section2">
+        <h2>Major Contributors to CO2 Emissions</h2>
+        <div id="stacked_bar_chart"></div>
+        <p id="sec2_text" class="text">
+            This stacked bar chart shows <strong>global CO2 emissions</strong> by the source of CO2 emissions from 2000 to 2021, 
+            broken down into major contributors such as <strong>coal, oil, gas, cement</strong>, and others. 
+            Each bar represents the total emissions for a given year, with segments showing each source’s contribution.
+            <br>
+            The chart highlights the <strong>dominance of fossil fuels</strong>, especially <strong>coal and gas</strong>, 
+            in driving emissions. While overall emissions have steadily increased, there are signs of <strong>shifts toward 
+            cleaner energy</strong> in recent years. Users can interact with the chart to explore specific sources 
+            and time periods, offering valuable insights into how <strong>industrial activities</strong> 
+            and energy consumption impact the environment.This visualization helps analysts, policymakers, 
+            and industries track <strong>key emission trends</strong> 
+            and work toward more <strong>sustainable solutions</strong>.
+        </p>
+        
+    </div>
+    <hr>
+    <div id="section3">
+        <h2>Coal Emissions by Country (1960-2021)</h2>
+        <div id="line_chart"></div>
+        <p id="sec3_text" class="text">
+            This line chart illustrates <strong>coal-related CO2 emissions</strong> from 1960 to 2021 across six major coal 
+            producers: <span style="color:green;"><strong>Australia</strong></span>, China, India, Russia, South Africa, and 
+            Indonesia. The chart highlights coal’s role as a key energy source, focusing on <span style="color:green;">
+            <strong>Australia’s contribution</strong></span> to global emissions.
+            <br>
+            While <span style="color:green;"><strong>Australia</strong></span> is known for its 
+            vast <strong>coal reserves</strong> and reliance on coal-fired power plants, its emissions are still far 
+            below those of China, which has seen a rapid increase in coal consumption since the early 2000s. 
+            <strong>China’s exponential rise</strong> now makes it the dominant source of global coal emissions, 
+            overshadowing other countries.
+            <br>
+            This chart allows for <strong>comparisons</strong> between <span style="color:green;">
+            <strong>Australia</strong></span> and other nations. India shows steady growth, while Russia’s 
+            emissions remain relatively stable. Despite <span style="color:green;"><strong>Australia</strong></span> 
+            being a top coal exporter, recent years show slight efforts toward a transition to 
+            <strong>cleaner energy sources</strong>.
+            This visualization highlights <span style="color:green;"><strong>Australia’s</strong></span> 
+            role in global coal emissions and underscores the need for strategies to balance 
+            <strong>economic growth</strong> with <strong>environmental responsibility</strong>.
+        </p>
+        
+        
+    </div>
+    <hr>
+    <div id="section4">
+        <h2>Australia’s CO2 Emissions in Global Context</h2>
+        <div id="bubble_chart"></div>
+        <p id="sec4_text" class="text">
+            This bubble chart shows the relationship between <strong>CO2 emissions per capita</strong> and 
+            <strong>total emissions</strong> for various countries in 2021. Each bubble's size represents total emissions, 
+            with <span style="color:green;"><strong>Australia</strong></span> highlighted in green. This chart compares 
+            both per capita emissions and the total emissions.
+            <span style="color:green;"><strong>Australia’s</strong></span> CO2 emissions per capita are over 15 metric tons, 
+            making it one of the top emitters per person, though its total emissions are much lower than global leaders like 
+            <strong>China</strong>, the <strong>USA</strong>, and <strong>India</strong>. China leads with over 11,000 Mt, 
+            while <span style="color:green;"><strong>Australia</strong></span> is around 391 Mt.
+        </p>
+        
+        
+    </div>
+    <hr>
+    <div id="section5">
+        <h2>Top Emitters</h2>
+        <div id="heat_map"></div>
+        <p id="sec5_text" class="text">
+            This heatmap highlights  <strong>per capita CO2 emissions</strong> of the top four emitters
+            — <strong>Qatar</strong>, <strong>Kuwait</strong>, <strong>Bahrain</strong>, and <strong>Brunei</strong>
+            — compared to <span style="color:green;"><strong>Australia</strong></span> and the <strong>USA</strong> 
+            from 2010 to 2021.Unlike the previous bubble chart, which compared total vs. per capita emissions, 
+            this heatmap focuses solely on per capita emissions. <strong>Qatar</strong> leads with the highest per 
+            capita emissions, followed by <strong>Kuwait</strong> and <strong>Bahrain</strong>.
+            Despite its lower total emissions, <span style="color:green;"><strong>Australia</strong></span> 
+            still ranks high in per capita emissions, surpassing the USA. This visualization highlights the impact of smaller, 
+            energy-intensive countries and <span style="color:green;"><strong>Australia’s</strong></span> ongoing challenge in 
+            managing its carbon footprint.
+        </p>
+        
+    </div>
+
+
+</div>
+
+</body>
+</html>
+
+

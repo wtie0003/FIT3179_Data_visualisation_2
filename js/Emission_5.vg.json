@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "CO2 Emissions Per Capita vs Total Emissions (2021)",
+  "data": {
+    "url": "data/capita.csv",
+    "format": {"type": "csv"}
+  },
+  "width": 800,
+  "height": 600,
+  "mark": "circle",
+  "selection": {
+    "grid": {
+      "type": "interval", 
+      "bind": "scales"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "Total",
+      "type": "quantitative",
+      "title": "Total CO2 Emissions (Mt)",
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "Per Capita",
+      "type": "quantitative",
+      "title": "CO2 Emissions Per Capita (Mt)",
+      "scale": {"zero": false}
+    },
+    "size": {
+      "field": "Total",
+      "type": "quantitative",
+      "title": "Total CO2 Emissions",
+      "scale": {"range": [50, 1000]}
+    },
+    "color": {
+      "condition": {
+        "test": "datum.Country === 'Australia'",
+        "value": "#006845"
+      },
+      "value": "lightblue"
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal", "title": "Country"},
+      {"field": "Per Capita", "type": "quantitative", "title": "CO2 Emissions Per Capita (Mt)"},
+      {"field": "Total", "type": "quantitative", "title": "Total CO2 Emissions (Mt)"}
+    ]
+  }
+}

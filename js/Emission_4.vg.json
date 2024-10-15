@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "params": [
+    {
+      "name": "country_select",
+      "value": "All Countries",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All Countries",
+          "Australia",
+          "USA",
+          "China",
+          "India",
+          "Russia",
+          "Indonesia"
+        ],
+        "name": "Select Country: "
+      }
+    }
+  ],
+  "data": {"url": "data/finalcoalemissions.csv", "format": {"type": "csv"}},
+  "transform": [
+    {
+      "filter": "country_select == 'All Countries' || datum.Country == country_select"
+    }
+  ],
+  "width": 750,
+  "height": 500,
+  "selection": {
+    "grid": {
+      "type": "interval",   
+      "bind": "scales"     
+    }
+    
+  },
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": {"type": "temporal", "field": "Year"},
+    "y": {"type": "quantitative", "field": "Coal", "title": "Coal Emissions (in Mt)"},
+    "color": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Country",
+      "scale": {
+        "domain": ["Australia", "China", "India", "Russia", "USA", "Indonesia"],
+        "range": ["#006845", "#FDE725", "lightblue", "#999999", "#3B528B", "#440154"]
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "temporal", "title": "Year"},
+      {"field": "Coal", "type": "quantitative", "title": "Coal Emissions (Mt)"},
+      {"field": "Country", "type": "nominal", "title": "Country"}
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "CO2 Emissions by Source (2000-2021)",
+    "data": {
+      "url": "data/chart2.csv"
+    },
+    
+    "params": [
+      {
+        "name": "Source_select",
+        "value": "All Sources",
+        "bind": {
+          "input": "select",
+          "options": [
+            "All Sources",
+            "Coal",
+            "Oil",
+            "Gas",
+            "Cement",
+            "Flaring",
+            "Other"
+          ],
+          "name": "Source: "
+        }
+      }
+    ],
+    
+    "transform": [
+      {
+        "fold": ["Coal", "Oil", "Gas", "Cement", "Flaring", "Other"], 
+        "as": ["Source", "Emissions"]
+      },
+      {
+        "filter": "datum.Source == Source_select || Source_select == 'All Sources'"
+      },
+      {
+        "filter": "datum.Year >= 2000 && datum.Year <= 2021"
+      }
+    ],
+  
+    "mark": "bar",
+    "encoding": {
+      "y": {"field": "Year", "type": "ordinal", "title": "Year"},
+      "x": {
+        "aggregate": "sum",
+        "field": "Emissions",
+        "type": "quantitative",
+        "title": "CO2 Emissions (Million Metric Tons)"
+      },
+      "color": {
+        "field": "Source",
+        "type": "nominal",
+        "scale": {"scheme": "viridis"},
+        "legend": {"title": "Emission Source"}
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Source", "type": "nominal", "title": "Emission Source"},
+        {"field": "Emissions", "type": "quantitative", "title": "CO2 Emissions (Mt)"}
+      ]
+    }
+  }
+  

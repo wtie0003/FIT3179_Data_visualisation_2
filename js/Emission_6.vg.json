@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Per Capita CO2 Emissions (2010-2021)",
+    "data": {
+      "url": "data/top6capita.csv", 
+      "format": {"type": "csv"}
+    },
+    "width": 750,
+    "height": 400,
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country",
+        "sort": {
+          "field": "Per Capita",  
+          "op": "max",  
+          "order": "descending" 
+        }
+      },
+      "color": {
+        "field": "Per Capita",
+        "type": "quantitative",
+        "title": "CO2 (Mt)",
+        "scale": {"scheme": "redblue",
+        "domain": [0, 50]
+      }
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Per Capita", "type": "quantitative", "title": "CO2 (Mt)"}
+      ]
+    },
+    "config": {
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      }
+    }
+  }
+  

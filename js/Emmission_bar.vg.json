@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 1000,
+    "data": {
+      "url": "data/map2.csv"
+    },
+  
+    "params": [
+      {
+        "name": "co2_select",
+        "value": 100,  
+        "bind": {
+          "input": "range",
+          "min": 100,
+          "max": 4600,
+          "step": 500,
+          "name": "CO2 Emissions more than (million tonnes):  "
+        }
+      }
+    ],
+  
+    "transform": [
+        {"filter": "datum.Total >= co2_select"}
+    ],
+  
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "sort": "-x",
+        "axis": {"title": "Country/Region"}
+      },
+      "x": {
+        "field": "Total",
+        "type": "quantitative",
+        "axis": {
+          "title": "Total CO2 Emissions (million tonnes)"
+        }
+      },
+   
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country/Region"},
+        {"field": "Total", "type": "quantitative", "title": "CO2 Emissions (Mt)"}
+      ]
+    }
+  }
+  
